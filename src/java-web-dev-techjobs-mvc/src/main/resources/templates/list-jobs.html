@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+
+
+    <link rel ="stylesheet" th:href="@{/techjobs.css}">
+
+
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+
+
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+    <!-- TODO #1 - Use a loop to display job results in a table. -->
+
+
+<!--    <th:block th:each = "columnChoices : ${columnChoices}">-->
+<!--        <h3 th:text = "${columnChoices.positionType}">Position Type</h3>-->
+<!--        <p th:text = "${columnChoices.location}">Location</p>-->
+<!--    </th:block>-->
+
+<!--        <th:block th:each = "table : ${tableChoices}">-->
+<!--            <h3 th:text = "${table.positionType}">Position Type</h3>-->
+<!--            <p th:text = "${table.location}">Location</p>-->
+<!--        </th:block>-->
+
+
+<!--    <th:block th:each = "jobs : ${jobData}">-->
+<!--        <h3 th:text = "${jobs.positionType}">Position Type</h3>-->
+<!--        <p th:text = "${table.location}">Location</p>-->
+<!--        <p th:text = "${jobData}">Location</p>-->
+<!--    </th:block>-->
+
+<!--    <th:block th:each = "jobs : ${column}">-->
+<!--        <h3 th:text = "${column.positionType}">Position Type</h3>-->
+<!--        <p th:text = "${column.location}">Location</p>-->
+<!--        <p th:text = "${value}">Location</p>-->
+<!--    </th:block>-->
+
+<!--    <ol>-->
+<!--        <li th:each="item : ${tableChoices}" th:text="${item}"></li>-->
+<!--    </ol>-->
+
+<!--    <ol>-->
+<!--        <li th:each="job : ${columnChoices.get(column)}" th:text="${job}"></li>-->
+<!--    </ol>-->
+
+
+<!--    <ol>-->
+<!--        <li th:each="item : ${column.positionType}"  th:text="${item}"></li>-->
+<!--    </ol>-->
+
+
+<!--    <ol>-->
+<!--        <li th:each="item : ${columnChoices.get(column)}"   th:text="${item}"></li>-->
+<!--    </ol>-->
+
+<!--    <ol>-->
+<!--        <li th:each="item : ${tableChoices.get(value)}"   th:text="${item}"></li>-->
+<!--    </ol>-->
+
+<!--        <ol>-->
+<!--            <li th:each="item : ${columnChoices.get(column)} + value"   th:text="${item}"></li>-->
+<!--        </ol>-->
+
+
+<!--    <ol>-->
+<!--                <li th:each="job : ${jobs}" th:text="${job}"></li>-->
+<!--        <li th:each="job : ${jobs.ID}" th:text="${job}"></li>-->
+<!--        <li th:each="job : ${jobs.get(name)}" th:text="${job}"></li>-->
+<!--        <li th:each="job : ${jobs.positionType}" th:text="${job}"></li>-->
+<!--    </ol>-->
+
+<!--    <ol>-->
+<!--        <li th:each="job : ${jobs.get(value)}" th:text="${job}"></li>-->
+        <!--        <li th:each="job : ${jobs.ID}" th:text="${job}"></li>-->
+<!--        <li th:each="job : ${jobs.get(name)}" th:text="${job}"></li>-->
+<!--        <li th:each="job : ${jobs.positionType}" th:text="${job}"></li>-->
+<!--    </ol>-->
+
+<!--    <ol>-->
+<!--        <li th:each="job : ${jobs.get('location')}" th:text="${job}"></li>-->
+<!--    </ol>-->
+
+
+<!--    <ol>-->
+<!--        <li th:each="job : ${jobs}" th:text="${job}"></li>-->
+<!--    </ol>-->
+
+<!--<table>-->
+<!--        <tr th:each="job : ${jobs}" th:text="${job}"></tr>-->
+<!--</table>-->
+
+<!--    <table>-->
+<!--            <tr th:each="job : ${jobs.get(i)}" th:text="${job}"></tr>-->
+<!--    </table>-->
+
+<!--    <table>-->
+<!--            <tr th:each="job : ${jobs}" th:text="${job.id}"></tr>-->
+<!--            <tr th:each="job : ${jobs}" th:text="${job.name}"></tr>-->
+<!--            <tr th:each="job : ${jobs}" th:text="${job.employer}"></tr>-->
+<!--            <tr th:each="job : ${jobs}" th:text="${job.location}"></tr>-->
+<!--            <tr th:each="job : ${jobs}" th:text="${job.positionType}"></tr>-->
+<!--    </table>-->
+
+<!--    <table>-->
+<!--        <table th:each="job : ${jobs}">-->
+<!--        <tr th:text="'ID: ' + ${job.id}"></tr>-->
+<!--            <tr th:text="'Name: ' + ${job.name}"></tr>-->
+<!--        </table>-->
+
+<!--    <table th:each="job : ${jobs}">-->
+<!--        <tr th:text="'ID: ' + ${job.id}"></tr>-->
+<!--        <tr th:text="'Name: ' + ${job.name}"></tr>-->
+<!--    </table>-->
+
+
+<!--    <link th:href="@{job-listing.css}">-->
+<!--    <link th:href="@{techjobs.css}">-->
+
+<!--//THIS ONE HERE**********-->
+    <table class="job-listing" th:each="job : ${jobs}" >
+            <tr><td class="job-listing" th:text="'ID: ' + ${job.id}"></td></tr>
+            <tr><td class="job-listing" th:text="'Name: ' + ${job.name}"></td></tr>
+            <tr><td class="first-child" th:text="'Employer: ' + ${job.employer}"></td></tr>
+            <tr><td class="first-child" th:text="'Location: ' + ${job.location}"></td></tr>
+            <tr><td class="first-child" th:text="'Position Type: ' + ${job.positionType}"></td></tr>
+            <tr><td class="first-child" th:text="'Skill: ' + ${job.coreCompetency}"></td></tr>
+    </table>
+
+<!--    <table class="job-listing" th:each="job : ${jobs}" >-->
+<!--        <tr>-->
+<!--            <td>-->
+<!--                <p th:text="'ID: ' + ${job.id}"></p>-->
+<!--                <p th:text="'Name: ' + ${job.name}"></p>-->
+<!--                <p th:text="'Employer: ' + ${job.employer}"></p>-->
+<!--                <p th:text="'Location: ' + ${job.location}"></p>-->
+<!--                <p th:text="'Position Type: ' + ${job.positionType}"></p>-->
+<!--                <p th:text="'Skill: ' + ${job.coreCompetency}"></p>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>-->
+<!--                <p th:text="'ID: ' + ${job.id}"></p>-->
+<!--                <p th:text="'Name: ' + ${job.name}"></p>-->
+<!--                <p th:text="'Employer: ' + ${job.employer}"></p>-->
+<!--                <p th:text="'Location: ' + ${job.location}"></p>-->
+<!--                <p th:text="'Position Type: ' + ${job.positionType}"></p>-->
+<!--                <p th:text="'Skill: ' + ${job.coreCompetency}"></p>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+
+
+<!--        </tr>-->
+<!--        <tr><td class="job-listing" th:text="'ID: ' + ${job.id}"></td></tr>-->
+<!--        <tr><td class="job-listing" th:text="'Name: ' + ${job.name}"></td></tr>-->
+<!--        <tr><td class="first-child" th:text="'Employer: ' + ${job.employer}"></td></tr>-->
+<!--        <tr><td class="first-child" th:text="'Location: ' + ${job.location}"></td></tr>-->
+<!--        <tr><td class="first-child" th:text="'Position Type: ' + ${job.positionType}"></td></tr>-->
+<!--        <tr><td class="first-child" th:text="'Skill: ' + ${job.coreCompetency}"></td></tr>-->
+<!--    </table>-->
+
+
+
+
+    <!--    <table class="job-listing" th:block th:each="job : ${jobs}">-->
+<!--        <tr><td class="first-child" th:text="'Employer: ' + ${job.employer}"></td></tr>-->
+<!--        <tr><td class="first-child" th:text="'Location: ' + ${job.location}"></td></tr>-->
+<!--        <tr><td class="first-child" th:text="'Position Type: ' + ${job.positionType}"></td></tr>-->
+<!--        <tr><td class="first-child" th:text="'Skill: ' + ${job.coreCompetency}"></td></tr>-->
+<!--    </table>-->
+<!--    <th:block>-->
+
+
+<!--    <table class="job-listing" th:each="job : ${jobs}" >-->
+<!--        <tr><td class="job-listing" th:text="'ID: ' + ${job.id}"></td></tr>-->
+<!--        <tr><td class="job-listing" th:text="'Name: ' + ${job.name}"></td></tr>-->
+<!--        <tr><td class="first-child" th:text="'Employer: ' + ${job.employer}"></td></tr>-->
+<!--        <tr><td class="first-child" th:text="'Location: ' + ${job.location}"></td></tr>-->
+<!--        <tr><td class="first-child" th:text="'Position Type: ' + ${job.positionType}"></td></tr>-->
+<!--        <tr><td class="first-child" th:text="'Skill: ' + ${job.coreCompetency}"></td></tr>-->
+<!--    </table>-->
+
+<!--    <table class="job-listing">-->
+    <!--        <tr th:each="job : ${jobs}" th:text="'ID: ' + ${job.id}" ></tr>-->
+    <!--    </table>-->
+
+
+
+
+    <!--    <table th:each="job : ${jobs}" class="job-listing">-->
+<!--        <tr th:text="'ID: ' + ${job.id}"></tr> <br />-->
+<!--        <tr th:text="'Name: ' + ${job.name}"></tr> <br />-->
+<!--        <tr th:text="'Employer: ' + ${job.employer}"></tr> <br />-->
+<!--        <tr th:text="'Location: ' + ${job.location}"></tr> <br />-->
+<!--        <tr th:text="'Position Type: ' + ${job.positionType}"></tr> <br />-->
+<!--        <tr th:text="'Skill: ' + ${job.coreCompetency}"></tr> <br />-->
+<!--    </table>-->
+
+
+
+
+
+    <!--        <tr th:each="job : ${jobs}" th:text="${job.name}"></tr>-->
+<!--        <tr th:each="job : ${jobs}" th:text="${job.employer}"></tr>-->
+<!--        <tr th:each="job : ${jobs}" th:text="${job.location}"></tr>-->
+<!--        <tr th:each="job : ${jobs}" th:text="${job.positionType}"></tr>-->
+<!--  -->
+
+
+
+
+<!--    <ol>-->
+<!--        <li th:each="job : ${jobs.get('Location')}" th:text="${job}"></li>-->
+<!--    </ol>-->
+
+
+
+</div>
+
+</body>
+</html>
